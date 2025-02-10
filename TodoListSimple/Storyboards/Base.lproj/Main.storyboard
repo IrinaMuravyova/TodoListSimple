@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UxL-Sr-jDU">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Задачи-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="TodoListViewController" id="BYZ-38-t0r" customClass="TodoListViewController" customModule="TodoListSimple" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="4oI-mU-lPz">
+                                <rect key="frame" x="16" y="155" width="361" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="20m-l0-jR3"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="a8s-Ky-pJl">
+                                <rect key="frame" x="16" y="227" width="361" height="542"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gKG-Wr-b2Y">
+                                <rect key="frame" x="0.0" y="769" width="393" height="49"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="tcO-1l-cgU"/>
+                                    <barButtonItem title="Количество задач" id="WXQ-po-1rs"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="YbL-5k-RPl"/>
+                                    <barButtonItem title="Item" image="square.and.pencil" catalog="system" id="MjE-PX-pOh">
+                                        <connections>
+                                            <segue destination="jEE-Pg-Or9" kind="show" id="NtD-Gr-ITA"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gKG-Wr-b2Y" secondAttribute="bottom" id="22U-wm-f8O"/>
+                            <constraint firstItem="a8s-Ky-pJl" firstAttribute="top" secondItem="4oI-mU-lPz" secondAttribute="bottom" constant="16" id="FkN-UK-K9Z"/>
+                            <constraint firstItem="gKG-Wr-b2Y" firstAttribute="top" secondItem="a8s-Ky-pJl" secondAttribute="bottom" id="GyW-J2-p6e"/>
+                            <constraint firstItem="a8s-Ky-pJl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="HUc-wO-7uU"/>
+                            <constraint firstItem="4oI-mU-lPz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="eL9-38-8K5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="a8s-Ky-pJl" secondAttribute="trailing" constant="16" id="fbZ-vM-2jv"/>
+                            <constraint firstItem="4oI-mU-lPz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="gWa-rp-PQX"/>
+                            <constraint firstItem="gKG-Wr-b2Y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rIj-dP-4Gr"/>
+                            <constraint firstAttribute="trailing" secondItem="gKG-Wr-b2Y" secondAttribute="trailing" id="ywu-yf-VFS"/>
+                            <constraint firstItem="4oI-mU-lPz" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" constant="-16" id="z1w-gi-tlx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Задачи" id="KWQ-D0-D9H"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="800.76335877862596" y="3.5211267605633805"/>
+        </scene>
+        <!--Actions View Controller-->
+        <scene sceneID="Q0t-5u-M3h">
+            <objects>
+                <viewController storyboardIdentifier="ActionsViewController" id="7SR-op-XDf" customClass="ActionsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="d2F-vq-wqD">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="owp-yT-7ZM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kAa-E1-qOv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-60" y="734"/>
+        </scene>
+        <!--Edit Todo View Controller-->
+        <scene sceneID="bv4-eF-OhI">
+            <objects>
+                <viewController storyboardIdentifier="EditTodoViewController" id="jEE-Pg-Or9" customClass="EditTodoViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IvC-bJ-fLU">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="2DI-sG-4hX">
+                                <rect key="frame" x="16" y="119" width="361" height="679"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Заголовок задачи" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GGa-qg-6VJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="41"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="41" id="Yqe-tB-x9c"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="02/12/24" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vge-2b-DNm">
+                                        <rect key="frame" x="0.0" y="57" width="361" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="mLy-sS-icY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Описание задачи" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="90w-fk-jyN">
+                                        <rect key="frame" x="0.0" y="89" width="361" height="590"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ByC-ie-CIX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ByC-ie-CIX" firstAttribute="bottom" secondItem="2DI-sG-4hX" secondAttribute="bottom" constant="20" id="ViU-9T-ZTj"/>
+                            <constraint firstItem="ByC-ie-CIX" firstAttribute="trailing" secondItem="2DI-sG-4hX" secondAttribute="trailing" constant="16" id="yB4-NT-3ct"/>
+                            <constraint firstItem="2DI-sG-4hX" firstAttribute="top" secondItem="ByC-ie-CIX" secondAttribute="top" constant="16" id="ymE-ke-mSj"/>
+                            <constraint firstItem="2DI-sG-4hX" firstAttribute="leading" secondItem="ByC-ie-CIX" secondAttribute="leading" constant="16" id="zJf-Fg-5Xz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="jiw-I7-Xlw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vNK-5l-gf7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1665" y="4"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qWq-LP-H7W">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UxL-Sr-jDU" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="YoB-pp-3Mv">
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Qyr-FB-Pbv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="reW-Ye-d3J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-60.305343511450381" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="square.and.pencil" catalog="system" width="128" height="121"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

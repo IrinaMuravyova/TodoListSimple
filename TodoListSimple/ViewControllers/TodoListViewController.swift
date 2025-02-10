@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TodoListViewController.swift
 //  TodoListSimple
 //
 //  Created by Irina Muravyeva on 10.02.2025.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TodoListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
