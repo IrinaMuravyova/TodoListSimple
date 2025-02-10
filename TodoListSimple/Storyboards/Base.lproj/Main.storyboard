@@ -31,7 +31,7 @@
                                 <rect key="frame" x="0.0" y="769" width="393" height="49"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="tcO-1l-cgU"/>
-                                    <barButtonItem title="Количество задач" id="WXQ-po-1rs"/>
+                                    <barButtonItem enabled="NO" title="Количество задач" id="WXQ-po-1rs"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="YbL-5k-RPl"/>
                                     <barButtonItem title="Item" image="square.and.pencil" catalog="system" id="MjE-PX-pOh">
                                         <connections>
@@ -56,7 +56,9 @@
                             <constraint firstItem="4oI-mU-lPz" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" constant="-16" id="z1w-gi-tlx"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Задачи" id="KWQ-D0-D9H"/>
+                    <navigationItem key="navigationItem" title="Задачи" id="KWQ-D0-D9H">
+                        <barButtonItem key="backBarButtonItem" title="Назад" id="AJO-Lp-7dD"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
