@@ -22,10 +22,10 @@ class TodoListViewController: UIViewController {
         todosTableView.delegate = self
         todosTableView.register(UINib(nibName: "TodoCell", bundle: nil), forCellReuseIdentifier: "TodoCell")
         
-        getTodosCount(todos.count)
+        setTodosCount(todos.count)
     }
     
-    private func getTodosCount(_ todosCount: Int) {
+    private func setTodosCount(_ todosCount: Int) {
         let todosCountString = pluralizeTask(count: todosCount)
         displayTodosCount(todosCountString)
     }
