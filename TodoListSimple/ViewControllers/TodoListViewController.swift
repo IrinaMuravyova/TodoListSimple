@@ -25,6 +25,13 @@ class TodoListViewController: UIViewController {
         setTodosCount(todos.count)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toEditViewController",
+           let editVC = segue.destination as? EditTodoViewController {
+            editVC.delegate = self  // Устанавливаем делегат
+        }
+    }
+    
     private func setTodosCount(_ todosCount: Int) {
         let todosCountString = pluralizeTask(count: todosCount)
         displayTodosCount(todosCountString)
@@ -64,5 +71,12 @@ extension TodoListViewController: UITableViewDelegate, UITableViewDataSource {
         let todo = todos[indexPath.row]
         cell.configure(with: todo)
         return cell
+    }
+}
+
+extension TodoListViewController: EditTodoViewControllerDelegate {
+    func addTodo(_ todo: Todo) {
+        todos.append(todo)
+        todosTableView.reloadData()
     }
 }

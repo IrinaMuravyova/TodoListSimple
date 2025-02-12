@@ -45,7 +45,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="YbL-5k-RPl"/>
                                     <barButtonItem title="Item" image="square.and.pencil" catalog="system" id="MjE-PX-pOh">
                                         <connections>
-                                            <segue destination="jEE-Pg-Or9" kind="show" id="NtD-Gr-ITA"/>
+                                            <segue destination="jEE-Pg-Or9" kind="show" identifier="toEditViewController" id="NtD-Gr-ITA"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -97,7 +97,7 @@
         <!--Edit Todo View Controller-->
         <scene sceneID="bv4-eF-OhI">
             <objects>
-                <viewController storyboardIdentifier="EditTodoViewController" id="jEE-Pg-Or9" customClass="EditTodoViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditTodoViewController" id="jEE-Pg-Or9" customClass="EditTodoViewController" customModule="TodoListSimple" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IvC-bJ-fLU">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -139,6 +139,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="jiw-I7-Xlw"/>
+                    <connections>
+                        <outlet property="dateTextField" destination="vge-2b-DNm" id="ubf-Eh-rYn"/>
+                        <outlet property="descriptionTextField" destination="90w-fk-jyN" id="fa2-z4-n0l"/>
+                        <outlet property="titleTextField" destination="GGa-qg-6VJ" id="oM7-ew-38b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNK-5l-gf7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
