@@ -1,5 +1,5 @@
 //
-//  TodoCellView.swift
+//  TodoCell.swift
 //  TodoListSimple
 //
 //  Created by Irina Muravyeva on 11.02.2025.
@@ -7,21 +7,18 @@
 
 import UIKit
 
-class TodoCell: UIView {
+class TodoCell: UITableViewCell {
     @IBOutlet weak var completedImageView: UIImageView!
-    @IBOutlet weak var todoTextView: UIView!
-    private var todoTextCellView: TodoTextCellView!
-
-    private func setupBaseView() {
-        todoTextCellView.translatesAutoresizingMaskIntoConstraints = false
-    }
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     func configure(with todo: Todo) {
         completedImageView.image = todo.completed
             ? UIImage(systemName: "checkmark.circle")
             : UIImage(systemName: "circle")
-
-        todoTextCellView.configure(with: todo)
+        titleLabel.text = todo.title
+        descriptionLabel.text = todo.description
+        dateLabel.text = todo.data.formatted(date: .numeric, time: .omitted)
     }
-    
 }

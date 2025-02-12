@@ -26,6 +26,16 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="a8s-Ky-pJl">
                                 <rect key="frame" x="16" y="227" width="361" height="542"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TodoCell" id="Phz-3I-Fo1" customClass="TodoCell" customModule="TodoListSimple" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="361" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Phz-3I-Fo1" id="S66-Rt-19S">
+                                            <rect key="frame" x="0.0" y="0.0" width="361" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gKG-Wr-b2Y">
                                 <rect key="frame" x="0.0" y="769" width="393" height="49"/>
@@ -59,6 +69,11 @@
                     <navigationItem key="navigationItem" title="Задачи" id="KWQ-D0-D9H">
                         <barButtonItem key="backBarButtonItem" title="Назад" id="AJO-Lp-7dD"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="4oI-mU-lPz" id="kC6-FN-iUO"/>
+                        <outlet property="todosCountButtonItem" destination="WXQ-po-1rs" id="kO7-Do-xtm"/>
+                        <outlet property="todosTableView" destination="a8s-Ky-pJl" id="Ark-eM-NOW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
