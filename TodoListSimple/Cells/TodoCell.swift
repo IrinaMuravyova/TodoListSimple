@@ -37,7 +37,7 @@ extension TodoCell: UIContextMenuInteractionDelegate {
     func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
         return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
                 let editAction = UIAction(title: "Редактировать", image: UIImage(systemName: "pencil")) { _ in
-                    guard let parentVC = self.parentViewController else { return }
+
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     if let editVC = storyboard.instantiateViewController(withIdentifier: "EditTodoViewController") as? EditTodoViewController {
                         editVC.todo = self.currentTodo
@@ -55,18 +55,5 @@ extension TodoCell: UIContextMenuInteractionDelegate {
                 
                 return UIMenu(title: "", children: [editAction, deleteAction])
             }
-    }
-}
-
-extension UIView {
-    var parentViewController: UIViewController? {
-        var responder: UIResponder? = self
-        while let nextResponder = responder?.next {
-            if let viewController = nextResponder as? UIViewController {
-                return viewController
-            }
-            responder = nextResponder
-        }
-        return nil
     }
 }
