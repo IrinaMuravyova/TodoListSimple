@@ -75,9 +75,16 @@ extension TodoListViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension TodoListViewController: EditTodoViewControllerDelegate {
-    func addTodo(_ todo: Todo) {
+    func add(_ todo: Todo) {
         todos.append(todo)
         todosTableView.reloadData()
         setTodosCount(todos.count)
+    }
+    
+    func update(_ todo: Todo) {
+        if let index = todos.firstIndex(where: { $0.id == todo.id }) {
+            todos[index] = todo
+        }
+        todosTableView.reloadData()
     }
 }

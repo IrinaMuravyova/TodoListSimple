@@ -13,6 +13,8 @@ class TodoCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
+    private var currentTodo: Todo?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -21,6 +23,7 @@ class TodoCell: UITableViewCell {
     }
     
     func configure(with todo: Todo) {
+        currentTodo = todo
         completedImageView.image = todo.completed
             ? UIImage(systemName: "checkmark.circle")
             : UIImage(systemName: "circle")
@@ -34,7 +37,16 @@ extension TodoCell: UIContextMenuInteractionDelegate {
     func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
         return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
                 let editAction = UIAction(title: "Редактировать", image: UIImage(systemName: "pencil")) { _ in
-                    print("Сообщение на редактировании")
+                    guard let parentVC = self.parentViewController else { return }
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    if let editVC = storyboard.instantiateViewController(withIdentifier: "EditTodoViewController") as? EditTodoViewController {
+                        editVC.todo = self.currentTodo
+                        editVC.openedForEdit = true
+                        if let navigationController = self.window?.rootViewController as? UINavigationController {
+                            editVC.delegate = navigationController.topViewController as? TodoListViewController
+                            navigationController.pushViewController(editVC, animated: true)
+                        }
+                    }
                 }
                 
                 let deleteAction = UIAction(title: "Удалить", image: UIImage(systemName: "trash"), attributes: .destructive) { _ in
@@ -43,5 +55,18 @@ extension TodoCell: UIContextMenuInteractionDelegate {
                 
                 return UIMenu(title: "", children: [editAction, deleteAction])
             }
+    }
+}
+
+extension UIView {
+    var parentViewController: UIViewController? {
+        var responder: UIResponder? = self
+        while let nextResponder = responder?.next {
+            if let viewController = nextResponder as? UIViewController {
+                return viewController
+            }
+            responder = nextResponder
+        }
+        return nil
     }
 }

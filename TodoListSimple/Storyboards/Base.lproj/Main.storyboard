@@ -82,7 +82,7 @@
         <!--Edit Todo View Controller-->
         <scene sceneID="bv4-eF-OhI">
             <objects>
-                <viewController storyboardIdentifier="EditTodoViewController" id="jEE-Pg-Or9" customClass="EditTodoViewController" customModule="TodoListSimple" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditTodoViewController" modalPresentationStyle="fullScreen" id="jEE-Pg-Or9" customClass="EditTodoViewController" customModule="TodoListSimple" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IvC-bJ-fLU">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
