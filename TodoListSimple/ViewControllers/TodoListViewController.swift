@@ -28,7 +28,7 @@ class TodoListViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toEditViewController",
            let editVC = segue.destination as? EditTodoViewController {
-            editVC.delegate = self  // Устанавливаем делегат
+            editVC.delegate = self
         }
     }
     

@@ -79,21 +79,6 @@
             </objects>
             <point key="canvasLocation" x="800.76335877862596" y="3.5211267605633805"/>
         </scene>
-        <!--Actions View Controller-->
-        <scene sceneID="Q0t-5u-M3h">
-            <objects>
-                <viewController storyboardIdentifier="ActionsViewController" id="7SR-op-XDf" customClass="ActionsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="d2F-vq-wqD">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="owp-yT-7ZM"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kAa-E1-qOv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-60" y="734"/>
-        </scene>
         <!--Edit Todo View Controller-->
         <scene sceneID="bv4-eF-OhI">
             <objects>

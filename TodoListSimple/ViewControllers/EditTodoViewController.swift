@@ -51,7 +51,7 @@ class EditTodoViewController: UIViewController {
                     id: UUID(),
                     title: titleTextField.text!,
                     description: descriptionTextField.text!,
-                    data: formatDate(dateTextField.text!),
+                    date: formatDate(dateTextField.text!),
                     completed: false
             )
         }

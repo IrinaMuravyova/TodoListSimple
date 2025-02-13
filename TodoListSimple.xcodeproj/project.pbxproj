@@ -14,7 +14,6 @@
 		88E806DA2D5A2761008857A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88E806D92D5A2761008857A5 /* Assets.xcassets */; };
 		88E806DD2D5A2761008857A5 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 88E806DC2D5A2761008857A5 /* Base */; };
 		88E806E52D5A27C2008857A5 /* EditTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E806E42D5A27C2008857A5 /* EditTodoViewController.swift */; };
-		88E806E72D5A281F008857A5 /* ActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E806E62D5A281F008857A5 /* ActionsViewController.swift */; };
 		88E806F82D5B4CE9008857A5 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E806F72D5B4CE9008857A5 /* Todo.swift */; };
 		88E806FF2D5B4F41008857A5 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E806FD2D5B4F41008857A5 /* TodoCell.swift */; };
 		88E807002D5B4F41008857A5 /* TodoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88E806FE2D5B4F41008857A5 /* TodoCell.xib */; };
@@ -30,7 +29,6 @@
 		88E806DC2D5A2761008857A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88E806DE2D5A2761008857A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88E806E42D5A27C2008857A5 /* EditTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTodoViewController.swift; sourceTree = "<group>"; };
-		88E806E62D5A281F008857A5 /* ActionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsViewController.swift; sourceTree = "<group>"; };
 		88E806F72D5B4CE9008857A5 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		88E806FD2D5B4F41008857A5 /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
 		88E806FE2D5B4F41008857A5 /* TodoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoCell.xib; sourceTree = "<group>"; };
@@ -91,7 +89,6 @@
 			children = (
 				88E806D42D5A275F008857A5 /* TodoListViewController.swift */,
 				88E806E42D5A27C2008857A5 /* EditTodoViewController.swift */,
-				88E806E62D5A281F008857A5 /* ActionsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -198,7 +195,6 @@
 				88E806D52D5A275F008857A5 /* TodoListViewController.swift in Sources */,
 				88E806D12D5A275F008857A5 /* AppDelegate.swift in Sources */,
 				88E806E52D5A27C2008857A5 /* EditTodoViewController.swift in Sources */,
-				88E806E72D5A281F008857A5 /* ActionsViewController.swift in Sources */,
 				88E806D32D5A275F008857A5 /* SceneDelegate.swift in Sources */,
 				88E806FF2D5B4F41008857A5 /* TodoCell.swift in Sources */,
 			);
