@@ -78,5 +78,6 @@ extension TodoListViewController: EditTodoViewControllerDelegate {
     func addTodo(_ todo: Todo) {
         todos.append(todo)
         todosTableView.reloadData()
+        setTodosCount(todos.count)
     }
 }
