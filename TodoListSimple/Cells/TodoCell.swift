@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+
 class TodoCell: UITableViewCell {
     @IBOutlet weak var completedImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -14,6 +16,8 @@ class TodoCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     
     private var currentTodo: Todo?
+    
+    weak var delegate: TodoCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -50,7 +54,10 @@ extension TodoCell: UIContextMenuInteractionDelegate {
                 }
                 
                 let deleteAction = UIAction(title: "Удалить", image: UIImage(systemName: "trash"), attributes: .destructive) { _ in
-                    print("Сообщение удалено")
+                    self.delegate?.delete(self.currentTodo!)
+                    if let navigationController = self.window?.rootViewController as? UINavigationController {
+                        navigationController.popViewController(animated: true)
+                    }
                 }
                 
                 return UIMenu(title: "", children: [editAction, deleteAction])

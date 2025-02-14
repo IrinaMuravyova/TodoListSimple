@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol TodoCellDelegate: AnyObject {
+    func delete(_ todo: Todo)
+}
+
 class TodoListViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var todosTableView: UITableView!
@@ -69,6 +73,7 @@ extension TodoListViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         let todo = todos[indexPath.row]
+        cell.delegate = self
         cell.configure(with: todo)
         return cell
     }
@@ -85,6 +90,16 @@ extension TodoListViewController: EditTodoViewControllerDelegate {
         if let index = todos.firstIndex(where: { $0.id == todo.id }) {
             todos[index] = todo
         }
+        todosTableView.reloadData()
+    }
+}
+
+extension TodoListViewController: TodoCellDelegate {
+    func delete(_ todo: Todo) {
+        if let index = todos.firstIndex(where: { $0.id == todo.id }) {
+            todos.remove(at: index)
+        }
+        setTodosCount(todos.count)
         todosTableView.reloadData()
     }
 }
