@@ -12,7 +12,7 @@ struct Todo {
     let title: String
     let description: String
     let date: Date
-    let completed: Bool
+    var completed: Bool
     
     // для тестирования
     static func getTodos() -> [Todo] {

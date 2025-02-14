@@ -24,6 +24,26 @@ class TodoCell: UITableViewCell {
         
         let menu = UIContextMenuInteraction(delegate: self)
         self.addInteraction(menu)
+        
+        completedImageView.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(completedImageTapped))
+        completedImageView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func completedImageTapped() {
+        guard let todo = currentTodo else { return }
+        currentTodo!.completed.toggle()
+        completedImageView.image = currentTodo!.completed
+            ? UIImage(systemName: "checkmark.circle")
+            : UIImage(systemName: "circle")
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let editVC = storyboard.instantiateViewController(withIdentifier: "EditTodoViewController") as? EditTodoViewController {
+            if let navigationController = self.window?.rootViewController as? UINavigationController {
+                editVC.delegate = navigationController.topViewController as? TodoListViewController
+                editVC.delegate?.update(currentTodo!)
+            }
+        }
     }
     
     func configure(with todo: Todo) {
@@ -41,7 +61,6 @@ extension TodoCell: UIContextMenuInteractionDelegate {
     func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
         return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
                 let editAction = UIAction(title: "Редактировать", image: UIImage(systemName: "pencil")) { _ in
-
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     if let editVC = storyboard.instantiateViewController(withIdentifier: "EditTodoViewController") as? EditTodoViewController {
                         editVC.todo = self.currentTodo
