@@ -11,22 +11,24 @@ protocol TodoCellDelegate: AnyObject {
     func delete(_ todo: Todo)
 }
 
-class TodoListViewController: UIViewController {
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var todosTableView: UITableView!
-    @IBOutlet weak var todosCountButtonItem: UIBarButtonItem!
-    var todos: [Todo] = []
+final class TodoListViewController: UIViewController {
+    @IBOutlet weak private var searchBar: UISearchBar!
+    @IBOutlet weak private var todosTableView: UITableView!
+    @IBOutlet weak private var todosCountButtonItem: UIBarButtonItem!
+    
+    private var todos: [Todo] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // для тестирования
-        todos = Todo.getTodos()
-        
+//        todos = Todo.getTodos()
+//        UserDefaultsManager.clearUserDefaults()
+
         todosTableView.dataSource = self
         todosTableView.delegate = self
         todosTableView.register(UINib(nibName: "TodoCell", bundle: nil), forCellReuseIdentifier: "TodoCell")
-        
-        setTodosCount(todos.count)
+    
+        configure()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -59,6 +61,25 @@ class TodoListViewController: UIViewController {
         }
 
         return "\(count) \(word)"
+    }
+
+    private func fetchTodos() {
+        NetworkManager.share.fetchTodos { [weak self] todos in
+            self?.todos = todos
+            UserDefaultsManager.save(todos)
+            self?.todosTableView.reloadData()
+            self?.setTodosCount(todos.count)
+        }
+    }
+    
+    private func configure() {
+        let haveBeenLaunched = UserDefaultsManager.checkIsFirstLaunch()
+        if !haveBeenLaunched {
+            fetchTodos()
+            UserDefaultsManager.setMarkIsFirstLaunch()
+        } else {
+            todos = UserDefaultsManager.loadTodos()
+        }
     }
 }
 
@@ -100,6 +121,32 @@ extension TodoListViewController: TodoCellDelegate {
             todos.remove(at: index)
         }
         setTodosCount(todos.count)
+        todosTableView.reloadData()
+    }
+}
+
+extension TodoListViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        let filteredTodos = search(in: todos, with: searchText)
+        self.displayTodos(filteredTodos)
+    }
+    
+    func search(in todos: [Todo], with query: String) -> [Todo] {
+        if query.isEmpty {
+            return todos
+        } else {
+            let filteredTodos = todos.filter { 
+                $0.title.lowercased().contains(query.lowercased()) ||
+                $0.description.lowercased().contains(query.lowercased())
+            }
+            return filteredTodos
+        }
+    }
+    
+    func displayTodos(_ todos: [Todo]) {
+        self.todos = todos
         todosTableView.reloadData()
     }
 }

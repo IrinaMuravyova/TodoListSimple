@@ -12,10 +12,10 @@ protocol EditTodoViewControllerDelegate: AnyObject {
     func update(_ todo: Todo)
 }
 
-class EditTodoViewController: UIViewController {
-    @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var dateTextField: UITextField!
-    @IBOutlet weak var descriptionTextField: UITextField!
+final class EditTodoViewController: UIViewController {
+    @IBOutlet weak private var titleTextField: UITextField!
+    @IBOutlet weak private var dateTextField: UITextField!
+    @IBOutlet weak private var descriptionTextField: UITextField!
     
     var todo: Todo?
     var openedForEdit: Bool = false

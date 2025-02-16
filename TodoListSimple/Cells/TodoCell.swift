@@ -31,7 +31,7 @@ class TodoCell: UITableViewCell {
     }
     
     @objc func completedImageTapped() {
-        guard let todo = currentTodo else { return }
+        guard let _ = currentTodo else { return }
         currentTodo!.completed.toggle()
         completedImageView.image = currentTodo!.completed
             ? UIImage(systemName: "checkmark.circle")
