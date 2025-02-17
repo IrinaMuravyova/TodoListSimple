@@ -79,6 +79,7 @@ final class TodoListViewController: UIViewController {
             UserDefaultsManager.setMarkIsFirstLaunch()
         } else {
             todos = UserDefaultsManager.loadTodos()
+            setTodosCount(todos.count)
         }
     }
 }
